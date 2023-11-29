@@ -94,10 +94,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                     style: GoogleFonts.lato(
                                         color: categoryName ==
                                                 categoriesList[index]
-                                            ? const Color.fromARGB(
-                                                255, 236, 239, 241)
-                                            : const Color.fromARGB(
-                                                255, 141, 37, 25),
+                                            ? const Color(0xFFECEFF1)
+                                            : const Color(0xFF8D2519),
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
