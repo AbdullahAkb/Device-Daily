@@ -78,25 +78,29 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                 categoryName = categoriesList[index];
                                 setState(() {});
                               },
-                              child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    color: categoryName == categoriesList[index]
-                                        ? const Color.fromARGB(255, 141, 37, 25)
-                                        : const Color.fromARGB(
-                                            255, 236, 239, 241),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: width * 0.02),
-                                  child: Text(
-                                    categoriesList[index].toString(),
-                                    style: GoogleFonts.lato(
-                                        color: categoryName ==
-                                                categoriesList[index]
-                                            ? const Color(0xFFECEFF1)
-                                            : const Color(0xFF8D2519),
-                                        fontWeight: FontWeight.w500),
+                              child: Card(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color:
+                                          categoryName == categoriesList[index]
+                                              ? const Color.fromARGB(
+                                                  255, 141, 37, 25)
+                                              : const Color.fromARGB(
+                                                  255, 236, 239, 241),
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.02),
+                                    child: Text(
+                                      categoriesList[index].toString(),
+                                      style: GoogleFonts.lato(
+                                          color: categoryName ==
+                                                  categoriesList[index]
+                                              ? const Color(0xFFECEFF1)
+                                              : const Color(0xFF8D2519),
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -210,7 +214,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     maxLines: 3,
                                                     style: GoogleFonts.roboto(
                                                       color: Colors.black87,
-                                                      fontSize: 18,
+                                                      fontSize: 15,
                                                       fontWeight:
                                                           FontWeight.w700,
                                                     ),
@@ -231,7 +235,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         style:
                                                             GoogleFonts.roboto(
                                                           color: Colors.blue,
-                                                          fontSize: 17,
+                                                          fontSize: 14,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),

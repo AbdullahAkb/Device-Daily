@@ -47,7 +47,7 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(top: height * 0.01),
+          padding: EdgeInsets.only(top: height * 0.00),
           child: AnimationLimiter(
             child: Column(
               children: AnimationConfiguration.toStaggeredList(
@@ -66,9 +66,8 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                         height: height * 0.4,
                         width: width,
                         child: ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              topRight: Radius.circular(40)),
+                          // borderRadius: const BorderRadius.only(
+                          //    ),
                           child: CachedNetworkImage(
                             imageUrl: widget.newsImageUrl,
                             fit: BoxFit.cover,

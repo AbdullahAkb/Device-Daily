@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 7,
         actions: [
           PopupMenuButton(
+            tooltip: 'News Channels',
             initialValue: selectedValue,
             onSelected: (item) {
               if (FilterList.bbcNews.name == item.name) {
@@ -340,119 +341,137 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: SlideAnimation(
                               verticalOffset: 50.0,
                               child: FadeInAnimation(
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) {
-                                        return NewsDetailsScreen(
-                                          newsImageUrl: snapshot
-                                              .data!.articles![index].urlToImage
-                                              .toString(),
-                                          newsTitle: snapshot
-                                              .data!.articles![index].title
-                                              .toString(),
-                                          newsDate: format.format(dateTime),
-                                          newSource: snapshot
-                                              .data!.articles![index].source
-                                              .toString(),
-                                          content: snapshot
-                                              .data!.articles![index].author
-                                              .toString(),
-                                          newsDescription: snapshot.data!
-                                              .articles![index].description
-                                              .toString(),
-                                          newsAuthor: snapshot
-                                              .data!.articles![index].author
-                                              .toString(),
-                                        );
-                                      },
-                                    ));
-                                  },
-                                  child: SizedBox(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(9),
-                                      child: Row(
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            child: CachedNetworkImage(
-                                              fit: BoxFit.cover,
-                                              height: height * .18,
-                                              width: width * .3,
-                                              imageUrl: snapshot.data!
-                                                  .articles![index].urlToImage
-                                                  .toString(),
-                                              placeholder: (context, url) {
-                                                return const Center(
-                                                    child: spinKit2);
-                                              },
-                                              errorWidget:
-                                                  (context, url, error) {
-                                                return const Icon(
-                                                  Icons.error_outline,
-                                                  color: Colors.redAccent,
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              height: height * .16,
-                                              padding: const EdgeInsets.only(
-                                                  left: 15),
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    snapshot.data!
-                                                        .articles![index].title
-                                                        .toString(),
-                                                    maxLines: 3,
-                                                    style: GoogleFonts.roboto(
-                                                      color: Colors.black54,
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                  const Spacer(),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.02),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) {
+                                          return NewsDetailsScreen(
+                                            newsImageUrl: snapshot.data!
+                                                .articles![index].urlToImage
+                                                .toString(),
+                                            newsTitle: snapshot
+                                                .data!.articles![index].title
+                                                .toString(),
+                                            newsDate: format.format(dateTime),
+                                            newSource: snapshot
+                                                .data!.articles![index].source
+                                                .toString(),
+                                            content: snapshot
+                                                .data!.articles![index].author
+                                                .toString(),
+                                            newsDescription: snapshot.data!
+                                                .articles![index].description
+                                                .toString(),
+                                            newsAuthor: snapshot
+                                                .data!.articles![index].author
+                                                .toString(),
+                                          );
+                                        },
+                                      ));
+                                    },
+                                    child: Card(
+                                      child: SizedBox(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(9),
+                                          child: Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: CachedNetworkImage(
+                                                  fit: BoxFit.cover,
+                                                  height: height * .18,
+                                                  width: width * .3,
+                                                  imageUrl: snapshot
+                                                      .data!
+                                                      .articles![index]
+                                                      .urlToImage
+                                                      .toString(),
+                                                  placeholder: (context, url) {
+                                                    return const Center(
+                                                        child: spinKit2);
+                                                  },
+                                                  errorWidget:
+                                                      (context, url, error) {
+                                                    return const Icon(
+                                                      Icons.error_outline,
+                                                      color: Colors.redAccent,
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Container(
+                                                  height: height * .16,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 15),
+                                                  child: Column(
                                                     children: [
                                                       Text(
                                                         snapshot
                                                             .data!
                                                             .articles![index]
-                                                            .source!
-                                                            .name
+                                                            .title
                                                             .toString(),
+                                                        maxLines: 3,
                                                         style:
                                                             GoogleFonts.roboto(
-                                                          color: Colors.blue,
-                                                          fontSize: 17,
+                                                          color: Colors.black54,
+                                                          fontSize: 15,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w700,
                                                         ),
                                                       ),
-                                                      Text(
-                                                        format.format(dateTime),
-                                                        style:
-                                                            GoogleFonts.roboto(
-                                                          fontSize: 15,
-                                                          color: Colors.black54,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                      const Spacer(),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text(
+                                                            snapshot
+                                                                .data!
+                                                                .articles![
+                                                                    index]
+                                                                .source!
+                                                                .name
+                                                                .toString(),
+                                                            style: GoogleFonts
+                                                                .roboto(
+                                                              color:
+                                                                  Colors.blue,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            format.format(
+                                                                dateTime),
+                                                            style: GoogleFonts
+                                                                .roboto(
+                                                              fontSize: 15,
+                                                              color: Colors
+                                                                  .black54,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-                                                ],
+                                                ),
                                               ),
-                                            ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
