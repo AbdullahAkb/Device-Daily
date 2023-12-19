@@ -49,6 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         elevation: 7,
         actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/payment',
+                );
+              },
+              child: const Text("Payment")),
           PopupMenuButton(
             tooltip: 'News Channels',
             initialValue: selectedValue,

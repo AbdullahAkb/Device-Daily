@@ -1,8 +1,12 @@
 import 'package:device_daily/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
-void main() {
+void main() async{
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey =
+      'pk_test_51OIuUjGZTTUrqgFwDLEN8S3b7RsHAr5f0WqIXBOfI8EvoJZlK785YNC5V5AiykEEBV8I74f0m2c1TwK5o7syB6Ss00JZiXqk9a'; // Replace with your publishable key
 }
 
 class MyApp extends StatelessWidget {
